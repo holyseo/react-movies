@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  background-color: rgba(29, 98, 155, 0.582);
+  padding: 0;
+  transition: transform 0.3s;
+}
+
+.container:hover {
+  transform: scale(1.05);
+}
+
+.poster {
+  width: 100%;
+  border-color: goldenrod;
+}
+
+.content h2 {
+  margin: 0;
+  font-size: 25px;
+  padding: 3%;
+}
+
+.content p {
+  padding: 0 3% 0 3%;
+  text-align: left;
+}
