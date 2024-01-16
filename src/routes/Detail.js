@@ -33,46 +33,46 @@ function Detail() {
       </header>
       <div className={styles.menu}>
         <div className={styles.header}>
-          <Link to={`/`}>🎬 Go back to MAIN page</Link>
-        </div>
-        <div
-          className={styles.container}
-          style={{
-            backgroundImage: `url("https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}")`,
-          }}
-        >
-          <div className={styles.poster}>
-            <img
-              src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`}
-              alt="movie.title"
-            />
-          </div>
-          <div className={styles.main}>
-            <h2 className={styles.title}>{movie.title}</h2>
-            <p>
-              {movie.genres ? (
-                movie.genres.map((genre) => <span>{genre.name} | </span>)
-              ) : (
-                <p>Loading...</p>
-              )}
-            </p>
-            <p className={styles.runtime}> Runtime: {movie.runtime} minutes</p>
-            <h2>Overview</h2>
-            <p className={styles.overview}>{movie.overview}</p>
-            <p className={styles.rating}> Rating: {movie.vote_average}</p>
-            <p className={styles.release}>
-              {" "}
-              Release Date: {movie.release_date}
-            </p>
-            <h2>Website</h2>
-            <p className={styles.homepage}>
-              <a href={movie.homepage} target="_blank">
-                {movie.homepage}
-              </a>
-            </p>
-          </div>
+          <Link to={`/`}>
+            <p>🎬 Go back to MAIN</p>
+          </Link>
         </div>
       </div>
+      <div
+        className={styles.container}
+        style={{
+          backgroundImage: `url("https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}")`,
+        }}
+      >
+        <div className={styles.poster}>
+          <img
+            src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`}
+            alt="movie.title"
+          />
+        </div>
+        <div className={styles.main}>
+          <h2 className={styles.title}>{movie.title}</h2>
+          <p>
+            {movie.genres ? (
+              movie.genres.map((genre) => <span>{genre.name} | </span>)
+            ) : (
+              <p>Loading...</p>
+            )}
+          </p>
+          <p className={styles.runtime}> Runtime: {movie.runtime} minutes</p>
+          <h2>Overview</h2>
+          <p className={styles.overview}>{movie.overview}</p>
+          <p className={styles.rating}> Rating: {movie.vote_average}</p>
+          <p className={styles.release}>Release Date: {movie.release_date}</p>
+          <h2>Website</h2>
+          <p className={styles.homepage}>
+            <a href={movie.homepage} target="_blank">
+              {movie.homepage ? movie.homepage : "Not avaiable at this time"}
+            </a>
+          </p>
+        </div>
+      </div>
+
       <footer>
         <div>
           <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg" />
