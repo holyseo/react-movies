@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import styles from "./Detail.module.css";
-import Movie from "../components/Movie";
 import { Link } from "react-router-dom";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function Detail() {
   const { id } = useParams();
@@ -21,16 +22,8 @@ function Detail() {
   }, []);
 
   return (
-    <div>
-      <header>
-        <div>
-          <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg" />
-        </div>
-        <div>Movies</div>
-        <div>TV Shows</div>
-        <div>People</div>
-        <div>More</div>
-      </header>
+    <div className={styles.layout}>
+      <Header />
       <div className={styles.menu}>
         <div className={styles.header}>
           <Link to={`/`}>
@@ -72,16 +65,7 @@ function Detail() {
           </p>
         </div>
       </div>
-
-      <footer>
-        <div>
-          <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg" />
-        </div>
-        <div>Movies</div>
-        <div>TV Shows</div>
-        <div>People</div>
-        <div>More</div>
-      </footer>
+      <Footer />
     </div>
   );
 }

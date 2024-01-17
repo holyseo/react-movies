@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import Movie from "../components/Movie";
 import styles from "./Home.module.css";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -31,15 +33,7 @@ function Home() {
 
   return (
     <div>
-      <header className={styles.header}>
-        <div>
-          <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg" />
-        </div>
-        <div>Movies</div>
-        <div>TV Shows</div>
-        <div>People</div>
-        <div>More</div>
-      </header>
+      <Header />
       {loading ? (
         <h1>Loading...</h1>
       ) : (
@@ -63,15 +57,7 @@ function Home() {
           </div>
         </div>
       )}
-      <footer>
-        <div>
-          <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg" />
-        </div>
-        <div>Movies</div>
-        <div>TV Shows</div>
-        <div>People</div>
-        <div>More</div>
-      </footer>
+      <Footer />
     </div>
   );
 }

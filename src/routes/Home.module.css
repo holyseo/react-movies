@@ -26,6 +26,9 @@ footer {
 footer {
   padding: 2% 20%;
   font-size: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
 }
 
 header img,
