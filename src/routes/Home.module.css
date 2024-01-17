@@ -1,16 +1,15 @@
 .container {
   display: flex;
   justify-content: center;
-  height: 100%;
+  background-color: black;
 }
 
 .movies {
   display: grid;
-  grid-template-columns: repeat(4, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 30px;
   padding: 50px;
-  width: 80%;
-  padding-top: 70px;
+  width: 100%;
 }
 
 header,
