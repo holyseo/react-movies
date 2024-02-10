@@ -22,38 +22,40 @@ function Detail() {
   }, []);
 
   return (
-    <div>
+    <div className="bg-gray-800">
       <Header />
       <div>
-        <div>
-          <Link to={`/`}>
-            <p>🎬 Go back to MAIN</p>
-          </Link>
-        </div>
+        <Link to={`/`}>
+          <p>🎬 Go back to MAIN</p>
+        </Link>
       </div>
-      <div className=" bg-gray-800 text-white flex flex-row">
-        <div className="">
+      <div className=" bg-gray-600 p-6 text-white flex flex-row justify-between mx-auto w-3/5">
+        <div className="mx-auto ">
           <img
             src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`}
             alt="movie.title"
-            className=""
+            className="w-96"
           />
         </div>
-        <div>
-          <h2>{movie.title}</h2>
-          <p>
+        <div className="w-3/5 font-mono leading-9 text-lg">
+          <h2 className="text-2xl font-extrabold mt-5">{movie.title}</h2>
+          <p className="font-bold mt-5">
+            Genre:
             {movie.genres ? (
               movie.genres.map((genre) => <span>{genre.name} | </span>)
             ) : (
               <p>Loading...</p>
             )}
           </p>
-          <p> Runtime: {movie.runtime} minutes</p>
-          <h2>Overview</h2>
+          <p className="font-bold mt-5"> Runtime:</p>
+          <span> {movie.runtime} minutes</span>
+          <h2 className="font-bold mt-5">Overview:</h2>
           <p>{movie.overview}</p>
-          <p> Rating: {movie.vote_average}</p>
-          <p>Release Date: {movie.release_date}</p>
-          <h2>Website</h2>
+          <p className="font-bold mt-5"> Rating: </p>
+          <span>{movie.vote_average}</span>
+          <p className="font-bold mt-5">Release Date: </p>
+          <span>{movie.release_date}</span>
+          <h2 className="font-bold mt-5">Website</h2>
           <p>
             <a href={movie.homepage} target="_blank">
               {movie.homepage ? movie.homepage : "Not avaiable at this time"}

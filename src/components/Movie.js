@@ -1,21 +1,21 @@
 // import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function Movie({ id, title, overview, rating, imgPath, release }) {
+function Movie({ id, title, overview, rating, imgPath, release, homepage }) {
   return (
     <div className=" flex flex-col bg-slate-400 max-w-96 hover:transform hover:scale-105 transition-transform duration-500">
       <Link to={`/movie/${id}`}>
-        <div className="m-1 self-center">
+        <div className="m-1">
           <img
             src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${imgPath}`}
             alt={title}
-            className="w-full"
+            className="w-full px-2 pt-2"
           />
         </div>
-        <div className="m-4 leading-6">
-          <h1 className="font-bold text-2xl">{title}</h1>
+        <div className=" min-h-48 m-3 leading-6 bg-white p-2 shadow-gray-700 shadow-lg rounded-sm">
+          <h1 className="font-bold text-xl">{title}</h1>
           <p className="font-mono text-sm tracking-tight mt-3">
-            {overview.length > 90 ? `${overview.slice(0, 90)}...` : overview}
+            {overview.length > 80 ? `${overview.slice(0, 80)}...` : overview}
           </p>
           <p className="mt-3">
             <span className=" font-bold">Date released:</span> {release}
