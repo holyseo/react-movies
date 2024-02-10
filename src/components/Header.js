@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header>
-      <div>
+    <div className="bg-gray-800 p-16 flex flex-row justify-between">
+      <div className="w-80">
         <Link to="/">
           <img
             alt="poster"
@@ -11,11 +11,13 @@ function Header() {
           />
         </Link>
       </div>
-      <div>Movies</div>
-      <div>TV Shows</div>
-      <div>People</div>
-      <div>More</div>
-    </header>
+      <div className="flex flex-row w-1/3 flex-wrap justify-between items-center text-white text-2xl">
+        <div>Movies</div>
+        <div>TV Shows</div>
+        <div>People</div>
+        <div>More</div>
+      </div>
+    </div>
   );
 }
 

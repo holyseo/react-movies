@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Movie from "../components/Movie";
-import styles from "./Home.module.css";
+
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
@@ -16,29 +16,21 @@ function Home() {
     ).json();
     setMovies(json.results);
     setLoading(false);
+    console.log(movies);
   };
 
   useEffect(() => {
     getMovieData();
-
-    // fetch(
-    //   `https://api.themoviedb.org/3/movie/now_playing?api_key=45dab8ebaef45e3e385533111422f6e2&language=en-US&page=1`
-    // )
-    //   .then((response) => response.json())
-    //   .then((json) => {
-    //     setMovies(json.results);
-    //     setLoading(false);
-    //   });
   }, []);
 
   return (
-    <div>
+    <div className="">
       <Header />
       {loading ? (
         <h1>Loading...</h1>
       ) : (
-        <div className={styles.container}>
-          <div className={styles.movies}>
+        <div className="bg-gray-800 p-10">
+          <div className="flex flex-row flex-wrap justify-center gap-10">
             {movies.map((movie) => (
               <Movie
                 key={movie.id}
