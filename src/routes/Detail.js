@@ -53,6 +53,8 @@ function Detail() {
           </p>
           <p className="font-bold mt-5"> Runtime:</p>
           <span> {movie.runtime} minutes</span>
+          <h2 className="font-bold mt-5">Original title:</h2>
+          <p>{movie.original_title}</p>
           <h2 className="font-bold mt-5">Overview:</h2>
           <p>{movie.overview}</p>
           <p className="font-bold mt-5"> Rating: </p>
@@ -61,7 +63,7 @@ function Detail() {
           <span>{movie.release_date}</span>
           <h2 className="font-bold mt-5">Website</h2>
           <p>
-            <a href={movie.homepage} target="_blank">
+            <a href={movie.homepage} target="_blank" rel="noreferrer">
               {movie.homepage ? movie.homepage : "Not avaiable at this time"}
             </a>
           </p>

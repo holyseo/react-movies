@@ -9,6 +9,9 @@ function App() {
         <Route path="/movie/:id">
           <Detail />
         </Route>
+        <Route path="/tv/:id">
+          <Detail />
+        </Route>
         <Route path="/">
           <Home />
         </Route>

@@ -1,23 +1,23 @@
 // import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function Movie({
+function Tv({
   id,
   title,
   original,
   overview,
   rating,
   vote,
-  imgPath,
+  poster_path,
   release,
   genres,
 }) {
   return (
-    <div className=" w-80 shadow-gray-300 shadow-[1px_1px_5px_1px] flex flex-col bg-slate-400 max-w-96 hover:transform hover:scale-95 transition-transform duration-500">
-      <Link to={`/movie/${id}`}>
+    <div className=" w-80 shadow-gray-300 shadow-[1px_1px_5px_1px] flex flex-col bg-slate-400 max-w-96 hover:transform hover:scale-95 transition-transform duration-200">
+      <Link to={`/tv/${id}`}>
         <div className="m-1">
           <img
-            src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${imgPath}`}
+            src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${poster_path}`}
             alt={title}
             className="px-2 pt-2"
           />
@@ -48,4 +48,4 @@ function Movie({
   );
 }
 
-export default Movie;
+export default Tv;
