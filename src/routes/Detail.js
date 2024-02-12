@@ -11,7 +11,7 @@ function Detail() {
   const getMovie = async () => {
     const json = await (
       await fetch(
-        `https://api.themoviedb.org/3/movie/${id}}?api_key=45dab8ebaef45e3e385533111422f6e2&append_to_response=videos`
+        `https://api.themoviedb.org/3/movie/${id}}?api_key=cca3b8cf4587f1e5f509512e91e77aca&append_to_response=videos`
       )
     ).json();
     setMovie(json);
@@ -24,21 +24,22 @@ function Detail() {
   return (
     <div className="bg-gray-800">
       <Header />
-      <div>
-        <Link to={`/`}>
-          <p>🎬 Go back to MAIN</p>
-        </Link>
-      </div>
-      <div className=" bg-gray-600 p-6 text-white flex flex-row justify-between mx-auto w-3/5">
-        <div className="mx-auto ">
+
+      <div className="mb-10 bg-gray-600 p-5 text-white flex flex-row justify-between mx-auto w-3/5">
+        <div className="mx-auto flex flex-col gap-5 ">
+          <div className="my-3 text-lg">
+            <Link to={`/`}>
+              <p>🎬 Go back to MAIN</p>
+            </Link>
+          </div>
           <img
             src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`}
             alt="movie.title"
             className="w-96"
           />
         </div>
-        <div className="w-3/5 font-mono leading-9 text-lg">
-          <h2 className="text-2xl font-extrabold mt-5">{movie.title}</h2>
+        <div className="w-3/5 mt-5 font-mono leading-9 text-lg">
+          <h2 className="text-4xl font-extrabold mt-5">{movie.title}</h2>
           <p className="font-bold mt-5">
             Genre:
             {movie.genres ? (

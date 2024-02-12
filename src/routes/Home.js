@@ -7,11 +7,12 @@ import Header from "../components/Header";
 function Home() {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
+  const APIKEY = process.env.REACT_APP_APIKEY;
 
   const getMovieData = async () => {
     const json = await (
       await fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=45dab8ebaef45e3e385533111422f6e2&primary_release_year=2023`
+        `https://api.themoviedb.org/3/discover/movie?api_key=${APIKEY}&primary_release_year=2024`
       )
     ).json();
     setMovies(json.results);
