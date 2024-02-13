@@ -38,6 +38,7 @@ function Home() {
       )
     ).json();
     setGenreList(json);
+    setLoading(false);
     console.log(genreList);
   };
 
@@ -51,12 +52,14 @@ function Home() {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 7000,
+    speed: 500,
     slidesToShow: 6,
     slidesToScroll: 1,
     initialSlide: 0,
     autoplay: true,
     autoplayspeed: 3000,
+    pauseonhover: true,
+    cssEase: "linear",
     responsive: [
       {
         breakpoint: 1024,
