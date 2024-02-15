@@ -3,31 +3,30 @@ import { Link } from "react-router-dom";
 
 function People({ id, profile_path, name, original, populairty, known_for }) {
   return (
-    <div className=" w-80 shadow-gray-300 shadow-[1px_1px_5px_1px] flex flex-col bg-slate-400 max-w-96 hover:transform hover:scale-95 transition-transform duration-200">
+    <div className=" flex flex-row ">
       <Link to={`/people/${id}`}>
-        <div className="m-1">
+        <div className=" flex flex-row justify-between w-full gap-3">
           <img
             src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${profile_path}`}
             alt={name}
-            className="px-2 pt-2"
+            className="rounded-xl h-60 hover:transform hover:scale-105 transition-transform duration-300"
           />
-        </div>
-        <div className=" min-h-80 m-3 leading-6 bg-white p-2  shadow-gray-900 shadow-[0px_0px_25px_1px] rounded-xl">
-          <h1 className="font-bold text-lg">{name}</h1>
+          <div className=" text-white leading-6rounded-xl">
+            <h1 className=" font-bold">{name}</h1>
 
-          <p className="mt-3">
-            <span className=" font-bold">Date released:</span> {original}
-          </p>
-          <p className="mt-3">
-            <span className=" font-bold">Rating:</span> {populairty}
-          </p>
-
-          {/* <p className="mt-3">
-            <span className=" font-bold">Genres:</span>
-            {known_for.map((known, index) => (
-              <span key={index}> {known} |</span>
-            ))}
-          </p> */}
+            <p className="mt-3 text-sm">
+              <ul className=" font-bold"></ul>
+              {known_for.map((known, index) =>
+                known.title ? (
+                  <li key={index} className="list-inside">
+                    {known.title}
+                  </li>
+                ) : (
+                  <li className="list-none"></li>
+                )
+              )}
+            </p>
+          </div>
         </div>
       </Link>
     </div>
