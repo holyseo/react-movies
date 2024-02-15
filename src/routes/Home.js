@@ -103,10 +103,10 @@ function Home() {
     className: "center",
     centerMode: true,
     infinite: true,
-    centerPadding: "20px",
-    slidesToShow: 2,
+    centerPadding: "10px",
+    slidesToShow: 3,
     speed: 500,
-    rows: 2,
+    rows: 1,
     slidesPerRow: 2,
     responsive: [
       {
@@ -202,11 +202,13 @@ function Home() {
             </Slider>
           </div>
           <div className=" border-sky-300 bg-gray-800 border-t-2 rounded-lg my-20"></div>
-          <div className="m-10 text-4xl font-semibold text-white ">People</div>
-          <div className="slider-container px-5">
+          <div className="m-10 text-4xl font-semibold text-white ">
+            Popular people
+          </div>
+          <div className="slider-container px-20">
             <Slider {...settings_people}>
               {people.map((person) => (
-                <div className=" px-5">
+                <div className="hover:transform hover:scale-95 transition-transform duration-300 px-5">
                   <People
                     key={person.id}
                     id={person.id}

@@ -13,7 +13,7 @@ function Movie({
   genres,
 }) {
   return (
-    <div className=" w-80 shadow-gray-300 shadow-[1px_1px_5px_1px] flex flex-col bg-slate-400 max-w-96 hover:transform hover:scale-95 transition-transform duration-500">
+    <div className="rounded-lg w-80 shadow-gray-200 shadow-[1px_1px_1px_1px] flex flex-col bg-slate-50 max-w-96 hover:transform hover:scale-95 transition-transform duration-500">
       <Link to={`/movie/${id}`}>
         <div className="m-1">
           <img
