@@ -6,20 +6,18 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 const APIKEY = process.env.REACT_APP_APIKEY;
 
-function Detail() {
+function TvDetail() {
   const { id } = useParams();
-  const [movie, setMovie] = useState("");
-  const getMovie = async () => {
+  const [tv, setTv] = useState("");
+  const getTv = async () => {
     const json = await (
-      await fetch(
-        `https://api.themoviedb.org/3/movie/${id}}?api_key=${APIKEY}&append_to_response=videos`
-      )
+      await fetch(`https://api.themoviedb.org/3/tv/${id}}?api_key=${APIKEY}`)
     ).json();
-    setMovie(json);
+    setTv(json);
   };
 
   useEffect(() => {
-    getMovie();
+    getTv();
   }, []);
 
   return (
@@ -34,43 +32,33 @@ function Detail() {
             </Link>
           </div>
           <img
-            src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`}
-            alt="movie.title"
+            src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${tv.poster_path}`}
+            alt="TV title"
             className="w-96  "
           />
         </div>
         <div className="w-3/5 mt-14 font-mono leading-9 text-lg ">
-          <h2 className="text-4xl font-extrabold mt-5">{movie.title}</h2>
+          <h2 className="text-4xl font-extrabold mt-5">{tv.original_name}</h2>
           <p className="font-bold mt-5">
             Genre:
-            {movie.genres ? (
-              movie.genres.map((genre, index) => (
+            {tv.genres ? (
+              tv.genres.map((genre, index) => (
                 <span key={index}> {genre.name} | </span>
               ))
             ) : (
               <p>Loading...</p>
             )}
           </p>
-          <p className="font-bold mt-5"> Runtime:</p>
-          <span> {movie.runtime} minutes</span>
-          <h2 className="font-bold mt-5">Original title:</h2>
-          <p>{movie.original_title}</p>
           <h2 className="font-bold mt-5">Overview:</h2>
-          <p>{movie.overview}</p>
+          <p>{tv.overview}</p>
           <p className="font-bold mt-5"> Rating: </p>
-          <span>{movie.vote_average}</span>
-          <p className="font-bold mt-5">Release Date: </p>
-          <span>{movie.release_date}</span>
-          <h2 className="font-bold mt-5">Website</h2>
-          <p>
-            <a href={movie.homepage} target="_blank" rel="noreferrer">
-              {movie.homepage ? movie.homepage : "Not avaiable at this time"}
-            </a>
-          </p>
+          <span>{tv.vote_average}</span>
+          <p className="font-bold mt-5">First Air Date: </p>
+          <span>{tv.first_air_date}</span>
         </div>
       </div>
       <Footer />
     </div>
   );
 }
-export default Detail;
+export default TvDetail;

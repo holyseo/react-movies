@@ -6,12 +6,14 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 import Slider from "react-slick";
+import People from "../components/People";
 
 function Home() {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
   const [tvs, setTvs] = useState([]);
   const [genreList, setGenreList] = useState([]);
+  const [people, setPeople] = useState([]);
 
   const APIKEY = process.env.REACT_APP_APIKEY;
   const movieUrl = "https://api.themoviedb.org/3/discover/movie";
@@ -21,14 +23,12 @@ function Home() {
     const json = await (await fetch(`${movieUrl}?api_key=${APIKEY}`)).json();
     setMovies(json.results);
     setLoading(false);
-    console.log(movies);
   };
 
   const getTvData = async () => {
     const json = await (await fetch(`${tvUrl}?api_key=${APIKEY}`)).json();
     setTvs(json.results);
     setLoading(false);
-    console.log(tvs);
   };
 
   const getGenres = async () => {
@@ -39,14 +39,25 @@ function Home() {
     ).json();
     setGenreList(json);
     setLoading(false);
-    console.log(genreList);
+  };
+
+  const getPeople = async () => {
+    const json = await (
+      await fetch(
+        `https://api.themoviedb.org/3/person/popular?api_key=${APIKEY}`
+      )
+    ).json();
+    setPeople(json.results);
+    setLoading(false);
+    console.log(people);
   };
 
   useEffect(() => {
     getMovieData();
     getGenres();
     getTvData();
-    console.log(tvs);
+    getPeople();
+    console.log(people);
   }, []);
 
   const settings = {
@@ -148,6 +159,24 @@ function Home() {
                         genre.id === g ? genre.name : null
                       )
                     )}
+                  />
+                </div>
+              ))}
+            </Slider>
+          </div>
+          <div className=" border-sky-300 bg-gray-800 border-t-2 rounded-lg my-20"></div>
+          <div className="m-10 text-4xl font-semibold text-white ">People</div>
+          <div className="slider-container px-5">
+            <Slider {...settings}>
+              {people.map((person) => (
+                <div className=" px-5">
+                  <People
+                    key={person.id}
+                    id={person.id}
+                    profile_path={person.profile_path}
+                    name={person.name}
+                    original={person.original_name}
+                    popularity={person.popularity}
                   />
                 </div>
               ))}
